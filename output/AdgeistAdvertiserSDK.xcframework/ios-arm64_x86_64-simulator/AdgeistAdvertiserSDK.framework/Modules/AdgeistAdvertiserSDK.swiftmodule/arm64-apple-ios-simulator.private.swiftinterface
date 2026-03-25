@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.2.3 effective-5.10 (swiftlang-6.2.3.3.21 clang-1700.6.3.2)
-// swift-module-flags: -target arm64-apple-ios17.4-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name AdgeistAdvertiserSDK
-// swift-module-flags-ignorable:  -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.3
+// swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
+// swift-module-flags: -target arm64-apple-ios17.4-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name AdgeistAdvertiserSDK
+// swift-module-flags-ignorable:  -interface-compiler-version 6.1.2
 import AdSupport
 @_exported import AdgeistAdvertiserSDK
 import AppTrackingTransparency
@@ -25,30 +25,20 @@ final public class TargetingOptions {
 @_hasMissingDesignatedInitializers final public class DeviceMeta {
   final public func getDeviceType() -> Swift.String
   final public func getDeviceBrand() -> Swift.String
-  #if compiler(>=5.3) && $NonescapableTypes
   final public func getCpuType() -> Swift.String?
-  #endif
   final public func getAvailableProcessors() -> Swift.Int
   final public func getOperatingSystem() -> Swift.String
   final public func getOSVersion() -> Swift.Int
   final public func getScreenDimensions() -> [Swift.String : Swift.Int]
-  #if compiler(>=5.3) && $NonescapableTypes
   final public func getNetworkType() -> Swift.String?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   final public func getNetworkProvider() -> Swift.String?
-  #endif
   final public func isTouchScreenAvailable() -> Swift.Bool
   final public func isGpuCapable() -> Swift.Bool
   final public func isNfcCapable() -> Swift.Bool
   final public func isVrCapable() -> Swift.Bool
   final public func isScreenReaderPresent() -> Swift.Bool
-  #if compiler(>=5.3) && $NonescapableTypes
   final public func getDeviceAge() -> Swift.String?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   final public func getDevicePricing() -> Swift.String?
-  #endif
   final public func getAllDeviceInfo() -> [Swift.String : Any]
   @objc deinit
 }
@@ -67,20 +57,14 @@ final public class TargetingOptions {
   final public func trackDeeplink(url: Foundation.URL)
   final public func trackUniversalLink(url: Foundation.URL)
   final public func getUTMData() -> [Swift.String : Any]
-  #if compiler(>=5.3) && $NonescapableTypes
   final public func getCurrentUTM() -> AdgeistAdvertiserSDK.UTMParameters?
-  #endif
   @objc deinit
 }
 @_hasMissingDesignatedInitializers final public class UTMTracker {
   public static let shared: AdgeistAdvertiserSDK.UTMTracker
   final public func trackFromDeeplink(url: Foundation.URL)
-  #if compiler(>=5.3) && $NonescapableTypes
   final public func initializeInstallReferrer(url: Foundation.URL? = nil)
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   final public func getUtmParameters() -> AdgeistAdvertiserSDK.UTMParameters?
-  #endif
   final public func clearUtmParameters()
   @objc deinit
 }
@@ -89,15 +73,9 @@ public struct UTMParameters : Swift.Codable, Swift.Equatable {
   public let campaign: Swift.String?
   public let data: Swift.String?
   public let sessionId: Swift.String?
-  #if compiler(>=5.3) && $NonescapableTypes
   public init(source: Swift.String? = nil, campaign: Swift.String? = nil, data: Swift.String? = nil, sessionId: Swift.String? = nil)
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(url: Foundation.URL)
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func fromMap(_ map: [Swift.String : Swift.String?]) -> AdgeistAdvertiserSDK.UTMParameters
-  #endif
   public func toDictionary() -> [Swift.String : Any]
   public func hasData() -> Swift.Bool
   public static func == (a: AdgeistAdvertiserSDK.UTMParameters, b: AdgeistAdvertiserSDK.UTMParameters) -> Swift.Bool
@@ -110,22 +88,14 @@ public struct EventTypes {
   public static let SESSION_DURATION: Swift.String
 }
 @_hasMissingDesignatedInitializers public class UTMAnalytics {
-  #if compiler(>=5.3) && $NonescapableTypes
   public func sendUtmData(_ params: AdgeistAdvertiserSDK.UTMParameters, eventType: Swift.String = EventTypes.VISIT, additionalData: [Swift.String : Any]? = nil, onComplete: ((Swift.Bool, Swift.String?) -> Swift.Void)? = nil)
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public func sendInstallAttributionEvent(utmParameters: AdgeistAdvertiserSDK.UTMParameters?)
-  #endif
   @objc deinit
 }
 public class NetworkUtils {
   public init()
-  #if compiler(>=5.3) && $NonescapableTypes
   public func getLocalIpAddress() -> Swift.String?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public func getWifiIpAddress() -> Swift.String?
-  #endif
   @objc deinit
 }
 @_hasMissingDesignatedInitializers @available(iOS 11.0, *)
