@@ -2,7 +2,7 @@ name: XCFramework Release
 
 on:
   push:
-    branches: ["feat/CI-CD", "qa"]
+    branches: ["main", "qa"]
 
 permissions:
   contents: write
@@ -21,7 +21,7 @@ jobs:
         id: config
         run: |
           BRANCH="${{ github.ref_name }}"
-          if [ "$BRANCH" = "feat/CI-CD" ]; then
+          if [ "$BRANCH" = "main" ]; then
             CONFIG="Beta"
           elif [ "$BRANCH" = "qa" ]; then
             CONFIG="QA"
