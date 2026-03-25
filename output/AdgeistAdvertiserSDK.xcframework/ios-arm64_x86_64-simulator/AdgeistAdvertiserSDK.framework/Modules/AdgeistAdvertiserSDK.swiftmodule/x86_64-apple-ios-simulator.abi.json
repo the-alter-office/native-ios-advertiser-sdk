@@ -578,25 +578,6 @@
               "AccessControl"
             ],
             "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "DeviceMeta",
-                "printedName": "AdgeistAdvertiserSDK.DeviceMeta",
-                "usr": "s:20AdgeistAdvertiserSDK10DeviceMetaC"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "s:20AdgeistAdvertiserSDK10DeviceMetaCACycfc",
-            "mangledName": "$s20AdgeistAdvertiserSDK10DeviceMetaCACycfc",
-            "moduleName": "AdgeistAdvertiserSDK",
-            "implicit": true,
-            "init_kind": "Designated"
           }
         ],
         "declKind": "Class",
@@ -1298,34 +1279,6 @@
                 "accessorKind": "get"
               }
             ]
-          },
-          {
-            "kind": "Function",
-            "name": "initializeAnalytics",
-            "printedName": "initializeAnalytics(bidRequestBackendDomain:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:20AdgeistAdvertiserSDK10UTMTrackerC19initializeAnalytics23bidRequestBackendDomainySS_tF",
-            "mangledName": "$s20AdgeistAdvertiserSDK10UTMTrackerC19initializeAnalytics23bidRequestBackendDomainySS_tF",
-            "moduleName": "AdgeistAdvertiserSDK",
-            "declAttributes": [
-              "Final",
-              "AccessControl",
-              "RawDocComment"
-            ],
-            "funcSelfKind": "NonMutating"
           },
           {
             "kind": "Function",
@@ -2239,25 +2192,6 @@
                 "accessorKind": "get"
               }
             ]
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "EventTypes",
-                "printedName": "AdgeistAdvertiserSDK.EventTypes",
-                "usr": "s:20AdgeistAdvertiserSDK10EventTypesV"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "s:20AdgeistAdvertiserSDK10EventTypesVACycfc",
-            "mangledName": "$s20AdgeistAdvertiserSDK10EventTypesVACycfc",
-            "moduleName": "AdgeistAdvertiserSDK",
-            "implicit": true,
-            "init_kind": "Designated"
           }
         ],
         "declKind": "Struct",
@@ -2297,30 +2231,6 @@
         "name": "UTMAnalytics",
         "printedName": "UTMAnalytics",
         "children": [
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init(bidRequestBackendDomain:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "UTMAnalytics",
-                "printedName": "AdgeistAdvertiserSDK.UTMAnalytics",
-                "usr": "s:20AdgeistAdvertiserSDK12UTMAnalyticsC"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "s:20AdgeistAdvertiserSDK12UTMAnalyticsC23bidRequestBackendDomainACSS_tcfc",
-            "mangledName": "$s20AdgeistAdvertiserSDK12UTMAnalyticsC23bidRequestBackendDomainACSS_tcfc",
-            "moduleName": "AdgeistAdvertiserSDK",
-            "init_kind": "Designated"
-          },
           {
             "kind": "Function",
             "name": "sendUtmData",
@@ -2425,7 +2335,6 @@
             "usr": "s:20AdgeistAdvertiserSDK12UTMAnalyticsC11sendUtmData_9eventType010additionalG010onCompleteyAA13UTMParametersV_SSSDySSypGSgySb_SSSgtcSgtF",
             "mangledName": "$s20AdgeistAdvertiserSDK12UTMAnalyticsC11sendUtmData_9eventType010additionalG010onCompleteyAA13UTMParametersV_SSSDySSypGSgySb_SSSgtcSgtF",
             "moduleName": "AdgeistAdvertiserSDK",
-            "isOpen": true,
             "declAttributes": [
               "AccessControl",
               "RawDocComment"
@@ -2461,7 +2370,6 @@
             "usr": "s:20AdgeistAdvertiserSDK12UTMAnalyticsC27sendInstallAttributionEvent13utmParametersyAA13UTMParametersVSg_tF",
             "mangledName": "$s20AdgeistAdvertiserSDK12UTMAnalyticsC27sendInstallAttributionEvent13utmParametersyAA13UTMParametersVSg_tF",
             "moduleName": "AdgeistAdvertiserSDK",
-            "isOpen": true,
             "declAttributes": [
               "AccessControl",
               "RawDocComment"
@@ -2473,7 +2381,6 @@
         "usr": "s:20AdgeistAdvertiserSDK12UTMAnalyticsC",
         "mangledName": "$s20AdgeistAdvertiserSDK12UTMAnalyticsC",
         "moduleName": "AdgeistAdvertiserSDK",
-        "isOpen": true,
         "declAttributes": [
           "AccessControl",
           "RawDocComment"
@@ -2560,7 +2467,6 @@
             "usr": "s:20AdgeistAdvertiserSDK12NetworkUtilsC17getLocalIpAddressSSSgyF",
             "mangledName": "$s20AdgeistAdvertiserSDK12NetworkUtilsC17getLocalIpAddressSSSgyF",
             "moduleName": "AdgeistAdvertiserSDK",
-            "isOpen": true,
             "declAttributes": [
               "AccessControl"
             ],
@@ -2590,7 +2496,6 @@
             "usr": "s:20AdgeistAdvertiserSDK12NetworkUtilsC16getWifiIpAddressSSSgyF",
             "mangledName": "$s20AdgeistAdvertiserSDK12NetworkUtilsC16getWifiIpAddressSSSgyF",
             "moduleName": "AdgeistAdvertiserSDK",
-            "isOpen": true,
             "declAttributes": [
               "AccessControl"
             ],
@@ -2601,7 +2506,6 @@
         "usr": "s:20AdgeistAdvertiserSDK12NetworkUtilsC",
         "mangledName": "$s20AdgeistAdvertiserSDK12NetworkUtilsC",
         "moduleName": "AdgeistAdvertiserSDK",
-        "isOpen": true,
         "declAttributes": [
           "AccessControl"
         ],
@@ -2693,25 +2597,6 @@
               "AccessControl"
             ],
             "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "DeviceIdentifier",
-                "printedName": "AdgeistAdvertiserSDK.DeviceIdentifier",
-                "usr": "s:20AdgeistAdvertiserSDK16DeviceIdentifierC"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "s:20AdgeistAdvertiserSDK16DeviceIdentifierCACycfc",
-            "mangledName": "$s20AdgeistAdvertiserSDK16DeviceIdentifierCACycfc",
-            "moduleName": "AdgeistAdvertiserSDK",
-            "implicit": true,
-            "init_kind": "Designated"
           }
         ],
         "declKind": "Class",
@@ -2741,290 +2626,90 @@
             "mangledName": "$ss9EscapableP"
           }
         ]
-      },
-      {
-        "kind": "TypeDecl",
-        "name": "Date",
-        "printedName": "Date",
-        "children": [
-          {
-            "kind": "Function",
-            "name": "toISOString",
-            "printedName": "toISOString()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:10Foundation4DateV20AdgeistAdvertiserSDKE11toISOStringSSyF",
-            "mangledName": "$s10Foundation4DateV20AdgeistAdvertiserSDKE11toISOStringSSyF",
-            "moduleName": "AdgeistAdvertiserSDK",
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          }
-        ],
-        "declKind": "Struct",
-        "usr": "s:10Foundation4DateV",
-        "mangledName": "$s10Foundation4DateV",
-        "moduleName": "Foundation",
-        "intro_Macosx": "10.10",
-        "intro_iOS": "8.0",
-        "intro_tvOS": "9.0",
-        "intro_watchOS": "2.0",
-        "declAttributes": [
-          "Available",
-          "Available",
-          "Available",
-          "Available"
-        ],
-        "isExternal": true,
-        "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "Comparable",
-            "printedName": "Comparable",
-            "usr": "s:SL",
-            "mangledName": "$sSL"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Hashable",
-            "printedName": "Hashable",
-            "usr": "s:SH",
-            "mangledName": "$sSH"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Equatable",
-            "printedName": "Equatable",
-            "usr": "s:SQ",
-            "mangledName": "$sSQ"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Sendable",
-            "printedName": "Sendable",
-            "usr": "s:s8SendableP",
-            "mangledName": "$ss8SendableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "SendableMetatype",
-            "printedName": "SendableMetatype",
-            "usr": "s:s16SendableMetatypeP",
-            "mangledName": "$ss16SendableMetatypeP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CustomDebugStringConvertible",
-            "printedName": "CustomDebugStringConvertible",
-            "usr": "s:s28CustomDebugStringConvertibleP",
-            "mangledName": "$ss28CustomDebugStringConvertibleP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CustomStringConvertible",
-            "printedName": "CustomStringConvertible",
-            "usr": "s:s23CustomStringConvertibleP",
-            "mangledName": "$ss23CustomStringConvertibleP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CustomReflectable",
-            "printedName": "CustomReflectable",
-            "usr": "s:s17CustomReflectableP",
-            "mangledName": "$ss17CustomReflectableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Decodable",
-            "printedName": "Decodable",
-            "usr": "s:Se",
-            "mangledName": "$sSe"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Encodable",
-            "printedName": "Encodable",
-            "usr": "s:SE",
-            "mangledName": "$sSE"
-          },
-          {
-            "kind": "Conformance",
-            "name": "ReferenceConvertible",
-            "printedName": "ReferenceConvertible",
-            "children": [
-              {
-                "kind": "TypeWitness",
-                "name": "ReferenceType",
-                "printedName": "ReferenceType",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "NSDate",
-                    "printedName": "Foundation.NSDate",
-                    "usr": "c:objc(cs)NSDate"
-                  }
-                ]
-              }
-            ],
-            "usr": "s:10Foundation20ReferenceConvertibleP",
-            "mangledName": "$s10Foundation20ReferenceConvertibleP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "_ObjectiveCBridgeable",
-            "printedName": "_ObjectiveCBridgeable",
-            "children": [
-              {
-                "kind": "TypeWitness",
-                "name": "_ObjectiveCType",
-                "printedName": "_ObjectiveCType",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "NSDate",
-                    "printedName": "Foundation.NSDate",
-                    "usr": "c:objc(cs)NSDate"
-                  }
-                ]
-              }
-            ],
-            "usr": "s:s21_ObjectiveCBridgeableP",
-            "mangledName": "$ss21_ObjectiveCBridgeableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "_CustomPlaygroundQuickLookable",
-            "printedName": "_CustomPlaygroundQuickLookable",
-            "usr": "s:s30_CustomPlaygroundQuickLookableP",
-            "mangledName": "$ss30_CustomPlaygroundQuickLookableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Strideable",
-            "printedName": "Strideable",
-            "children": [
-              {
-                "kind": "TypeWitness",
-                "name": "Stride",
-                "printedName": "Stride",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Double",
-                    "printedName": "Swift.Double",
-                    "usr": "s:Sd"
-                  }
-                ]
-              }
-            ],
-            "usr": "s:Sx",
-            "mangledName": "$sSx"
-          }
-        ]
       }
     ],
     "json_format_version": 8
   },
   "ConstValues": [
     {
-      "filePath": "\/Users\/joynal\/work\/sdk\/ios\/native-ios-advertiser-sdk\/AdgeistAdvertiserSDK\/AdgeistAdvertiserSDK\/core\/UTMTracker.swift",
+      "filePath": "\/Users\/runner\/work\/native-ios-advertiser-sdk\/native-ios-advertiser-sdk\/AdgeistAdvertiserSDK\/AdgeistAdvertiserSDK\/core\/UTMTracker.swift",
       "kind": "StringLiteral",
       "offset": 281,
       "length": 12,
       "value": "\"UTMTracker\""
     },
     {
-      "filePath": "\/Users\/joynal\/work\/sdk\/ios\/native-ios-advertiser-sdk\/AdgeistAdvertiserSDK\/AdgeistAdvertiserSDK\/core\/UTMTracker.swift",
+      "filePath": "\/Users\/runner\/work\/native-ios-advertiser-sdk\/native-ios-advertiser-sdk\/AdgeistAdvertiserSDK\/AdgeistAdvertiserSDK\/core\/UTMTracker.swift",
       "kind": "StringLiteral",
       "offset": 376,
       "length": 12,
       "value": "\"utm_source\""
     },
     {
-      "filePath": "\/Users\/joynal\/work\/sdk\/ios\/native-ios-advertiser-sdk\/AdgeistAdvertiserSDK\/AdgeistAdvertiserSDK\/core\/UTMTracker.swift",
+      "filePath": "\/Users\/runner\/work\/native-ios-advertiser-sdk\/native-ios-advertiser-sdk\/AdgeistAdvertiserSDK\/AdgeistAdvertiserSDK\/core\/UTMTracker.swift",
       "kind": "StringLiteral",
       "offset": 424,
       "length": 14,
       "value": "\"utm_campaign\""
     },
     {
-      "filePath": "\/Users\/joynal\/work\/sdk\/ios\/native-ios-advertiser-sdk\/AdgeistAdvertiserSDK\/AdgeistAdvertiserSDK\/core\/UTMTracker.swift",
+      "filePath": "\/Users\/runner\/work\/native-ios-advertiser-sdk\/native-ios-advertiser-sdk\/AdgeistAdvertiserSDK\/AdgeistAdvertiserSDK\/core\/UTMTracker.swift",
       "kind": "StringLiteral",
       "offset": 470,
       "length": 10,
       "value": "\"utm_data\""
     },
     {
-      "filePath": "\/Users\/joynal\/work\/sdk\/ios\/native-ios-advertiser-sdk\/AdgeistAdvertiserSDK\/AdgeistAdvertiserSDK\/core\/UTMTracker.swift",
+      "filePath": "\/Users\/runner\/work\/native-ios-advertiser-sdk\/native-ios-advertiser-sdk\/AdgeistAdvertiserSDK\/AdgeistAdvertiserSDK\/core\/UTMTracker.swift",
       "kind": "StringLiteral",
       "offset": 514,
       "length": 12,
       "value": "\"session_id\""
     },
     {
-      "filePath": "\/Users\/joynal\/work\/sdk\/ios\/native-ios-advertiser-sdk\/AdgeistAdvertiserSDK\/AdgeistAdvertiserSDK\/core\/UTMTracker.swift",
+      "filePath": "\/Users\/runner\/work\/native-ios-advertiser-sdk\/native-ios-advertiser-sdk\/AdgeistAdvertiserSDK\/AdgeistAdvertiserSDK\/core\/UTMTracker.swift",
       "kind": "StringLiteral",
       "offset": 562,
       "length": 14,
       "value": "\"first_launch\""
     },
     {
-      "filePath": "\/Users\/joynal\/work\/sdk\/ios\/native-ios-advertiser-sdk\/AdgeistAdvertiserSDK\/AdgeistAdvertiserSDK\/core\/UTMTracker.swift",
+      "filePath": "\/Users\/runner\/work\/native-ios-advertiser-sdk\/native-ios-advertiser-sdk\/AdgeistAdvertiserSDK\/AdgeistAdvertiserSDK\/core\/UTMTracker.swift",
       "kind": "BooleanLiteral",
       "offset": 823,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/joynal\/work\/sdk\/ios\/native-ios-advertiser-sdk\/AdgeistAdvertiserSDK\/AdgeistAdvertiserSDK\/core\/EventTypes.swift",
+      "filePath": "\/Users\/runner\/work\/native-ios-advertiser-sdk\/native-ios-advertiser-sdk\/AdgeistAdvertiserSDK\/AdgeistAdvertiserSDK\/core\/EventTypes.swift",
       "kind": "StringLiteral",
       "offset": 157,
       "length": 7,
       "value": "\"VISIT\""
     },
     {
-      "filePath": "\/Users\/joynal\/work\/sdk\/ios\/native-ios-advertiser-sdk\/AdgeistAdvertiserSDK\/AdgeistAdvertiserSDK\/core\/EventTypes.swift",
+      "filePath": "\/Users\/runner\/work\/native-ios-advertiser-sdk\/native-ios-advertiser-sdk\/AdgeistAdvertiserSDK\/AdgeistAdvertiserSDK\/core\/EventTypes.swift",
       "kind": "StringLiteral",
       "offset": 245,
       "length": 9,
       "value": "\"INSTALL\""
     },
     {
-      "filePath": "\/Users\/joynal\/work\/sdk\/ios\/native-ios-advertiser-sdk\/AdgeistAdvertiserSDK\/AdgeistAdvertiserSDK\/core\/EventTypes.swift",
+      "filePath": "\/Users\/runner\/work\/native-ios-advertiser-sdk\/native-ios-advertiser-sdk\/AdgeistAdvertiserSDK\/AdgeistAdvertiserSDK\/core\/EventTypes.swift",
       "kind": "StringLiteral",
       "offset": 360,
       "length": 18,
       "value": "\"SESSION_DURATION\""
     },
     {
-      "filePath": "\/Users\/joynal\/work\/sdk\/ios\/native-ios-advertiser-sdk\/AdgeistAdvertiserSDK\/AdgeistAdvertiserSDK\/data\/network\/UTMAnalytics.swift",
+      "filePath": "\/Users\/runner\/work\/native-ios-advertiser-sdk\/native-ios-advertiser-sdk\/AdgeistAdvertiserSDK\/AdgeistAdvertiserSDK\/data\/network\/UTMAnalytics.swift",
       "kind": "StringLiteral",
       "offset": 191,
       "length": 14,
       "value": "\"UTMAnalytics\""
     },
     {
-      "filePath": "\/Users\/joynal\/work\/sdk\/ios\/native-ios-advertiser-sdk\/AdgeistAdvertiserSDK\/AdgeistAdvertiserSDK\/data\/network\/UTMAnalytics.swift",
+      "filePath": "\/Users\/runner\/work\/native-ios-advertiser-sdk\/native-ios-advertiser-sdk\/AdgeistAdvertiserSDK\/AdgeistAdvertiserSDK\/data\/network\/UTMAnalytics.swift",
       "kind": "StringLiteral",
       "offset": 250,
       "length": 24,
