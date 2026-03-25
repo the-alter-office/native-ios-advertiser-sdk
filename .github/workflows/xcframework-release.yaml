@@ -1,0 +1,184 @@
+name: XCFramework Release
+
+on:
+  push:
+    branches: ["feat/CI-CD", "qa"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Build and Release XCFramework
+    runs-on: macos-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Determine configuration based on branch
+        id: config
+        run: |
+          BRANCH="${{ github.ref_name }}"
+          if [ "$BRANCH" = "feat/CI-CD" ]; then
+            CONFIG="Beta"
+          elif [ "$BRANCH" = "qa" ]; then
+            CONFIG="QA"
+          elif [ "$BRANCH" = "prod" ]; then
+            CONFIG="Prod"
+          else
+            CONFIG="Release"
+          fi
+          echo "build_config=$CONFIG" >> $GITHUB_OUTPUT
+          echo "Building with configuration: $CONFIG for branch: $BRANCH"
+
+      - name: Extract version from podspec
+        id: version
+        run: |
+          VERSION_NAME=$(pod ipc spec AdgeistAdvertiserSDK.podspec | grep '"version"' | head -1 | awk -F'"' '{print $4}')
+
+          VERSION="$VERSION_NAME"
+
+          echo "pod_version=$VERSION" >> $GITHUB_OUTPUT
+          echo "Current library version: $VERSION"
+
+      - name: Get latest release
+        id: latest_release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          LATEST_TAG=$(gh release view --json tagName --jq '.tagName' 2>/dev/null || echo "")
+          echo "tag_name=$LATEST_TAG" >> $GITHUB_OUTPUT
+          echo "Latest release tag: $LATEST_TAG"
+
+      - name: Check for duplicate version (fail early)
+        run: |
+          CURRENT_VERSION=${{ steps.version.outputs.pod_version }}
+          LATEST_RELEASE_TAG=${{ steps.latest_release.outputs.tag_name || '' }}
+
+          if [ -n "$LATEST_RELEASE_TAG" ] && [ "$LATEST_RELEASE_TAG" = "$CURRENT_VERSION" ]; then
+            echo "🚫 ERROR: Version $CURRENT_VERSION already exists as the latest GitHub Release (tag: $LATEST_RELEASE_TAG)."
+            echo "Bump the version in AdgeistAdvertiserSDK.podspec."
+            exit 1
+          fi
+          echo "✅ Version is new: $CURRENT_VERSION"
+          echo "Latest Release tag: $LATEST_RELEASE_TAG (or none)"
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.2"
+          bundler-cache: true
+
+      - name: Install CocoaPods
+        run: gem install cocoapods
+
+        # This generates output/AdgeistAdvertiserSDK.xcframework with environment-specific configuration
+      - name: Build XCFramework
+        run: |
+          echo "🔨 Building XCFramework with ${{ steps.config.outputs.build_config }} configuration..."
+          ./build_framework.sh ${{ steps.config.outputs.build_config }}
+          echo "✅ XCFramework built successfully"
+
+      - name: Validate podspec
+        run: pod lib lint AdgeistAdvertiserSDK.podspec --allow-warnings
+
+      - name: Commit generated framework
+        id: commit
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add output/AdgeistAdvertiserSDK.xcframework
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+            echo "committed=false" >> $GITHUB_OUTPUT
+          else
+            git commit -m "release: ${{ steps.version.outputs.pod_version }}"
+            echo "committed=true" >> $GITHUB_OUTPUT
+            echo "commit_sha=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
+          fi
+          git pull --rebase origin ${{ github.ref_name }}
+          git push origin HEAD:${{ github.ref_name }}
+
+      - name: Create git tag
+        run: |
+          git tag ${{ steps.version.outputs.pod_version }}
+          git push origin ${{ steps.version.outputs.pod_version }}
+
+      - name: Create GitHub Release
+        id: create_release
+        if: success()
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.version.outputs.pod_version }}
+          name: ${{ steps.version.outputs.pod_version }}
+          body: AdgeistAdvertiserSDK iOS SDK version ${{ steps.version.outputs.pod_version }}
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Push to CocoaPods Trunk
+        id: trunk_push
+        env:
+          COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
+        run: |
+          pod trunk push AdgeistAdvertiserSDK.podspec --allow-warnings
+
+      # ==================== CLEANUP ON FAILURE IN "Push to CocoaPods Trunk" STEP ====================
+
+      - name: Delete GitHub Release (on Trunk failure)
+        if: failure() && steps.trunk_push.outcome == 'failure'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "Trunk push failed → deleting GitHub Release"
+          gh release delete ${{ steps.version.outputs.pod_version }} --yes
+
+      - name: Delete git tag locally and remotely (on Trunk failure)
+        if: failure() && steps.trunk_push.outcome == 'failure'
+        run: |
+          echo "Trunk push failed → deleting tag ${{ steps.version.outputs.pod_version }}"
+          git tag -d ${{ steps.version.outputs.pod_version }}
+          git push origin --delete ${{ steps.version.outputs.pod_version }} || echo "Tag already deleted or not found"
+
+      - name: Revert framework commit (on Trunk failure)
+        if: failure() && steps.trunk_push.outcome == 'failure' && steps.commit.outputs.committed == 'true'
+        run: |
+          echo "Trunk push failed → reverting framework commit"
+          git revert ${{ steps.commit.outputs.commit_sha }} --no-edit
+          git push origin HEAD:${{ github.ref_name }}
+
+      # ==================== SEND SLACK NOTIFICATION ====================
+
+      - name: Send Slack Notification
+        if: always()
+        run: |
+          REPO="${{ github.repository }}"
+          BRANCH="${{ github.ref_name }}"
+          WORKFLOW_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+          if [ "${{ job.status }}" = "success" ]; then
+            STATUS_EMOJI="✅"
+            STATUS_TEXT="Deployment Succeeded"
+          else
+            STATUS_EMOJI="❌"
+            STATUS_TEXT="Deployment Failed"
+          fi
+
+          ARTIFACT_URL="https://cocoapods.org/pods/AdgeistAdvertiserSDK"
+
+          MESSAGE="*Swift (IOS) Package Deployment Status*
+          $STATUS_EMOJI *Status:* $STATUS_TEXT
+          *Repository:* $REPO
+          *Branch:* $BRANCH
+          *Version:* ${{ steps.version.outputs.pod_version }}"
+
+          curl -X POST "${{ secrets.SLACK_NOTIFICATION_WEBHOOK_URL }}" \
+            -H "Content-Type: application/json" \
+            -d "{
+              \"text\": \"$MESSAGE\",
+              \"workflowUrl\": \"$WORKFLOW_URL\",
+              \"artifactUrl\": \"$ARTIFACT_URL\"
+            }"
