@@ -1,0 +1,44 @@
+Pod::Spec.new do |s|  
+  # Read version from Shared.xcconfig
+  shared_config = File.read('AdgeistAdvertiserSDK/Config/Shared.xcconfig')
+  base_version = shared_config.match(/VERSION_NAME\s*=\s*(.+)/)&.captures&.first&.strip || '0.0.0'
+  
+  # Auto-detect environment from git branch
+  current_branch = `git rev-parse --abbrev-ref HEAD 2>/dev/null`.strip
+  
+  # Construct version with environment suffix
+  version_suffix = case current_branch
+  when 'main'
+    '-beta'
+  when 'qa'
+    '-qa'
+  else
+    ''
+  end
+  
+  full_version = "#{base_version}#{version_suffix}"
+
+  s.name             = 'AdgeistAdvertiserSDK'
+  s.version          = full_version
+  s.summary          = 'AdGeist Advertiser iOS SDK'
+  s.description      = 'AdGeist advertiser tracking and attribution SDK for iOS apps'
+  s.homepage         = 'https://github.com/the-alter-office/native-ios-advertiser-sdk'
+  s.license          = { :type => 'MIT', :file => 'LICENSE' }
+  s.authors          = { 'kishore' => 'kishore@thealteroffice.com' }
+  s.platform         = :ios, '11.0'
+  s.source           = { :git => 'https://github.com/the-alter-office/native-ios-advertiser-sdk.git', :tag => "#{s.version}"}
+
+  s.ios.deployment_target = '12.0'
+
+  s.vendored_frameworks = 'output/AdgeistAdvertiserSDK.xcframework'
+  s.requires_arc = true
+
+  s.pod_target_xcconfig = {
+    'BUILD_LIBRARY_FOR_DISTRIBUTION' => 'YES',
+    'DEFINES_MODULE' => 'YES',
+    'SWIFT_INSTALL_OBJC_HEADER' => 'YES',
+  }
+
+  s.swift_version = '5.0'
+end 
+

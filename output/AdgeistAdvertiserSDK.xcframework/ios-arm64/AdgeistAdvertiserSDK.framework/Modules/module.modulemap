@@ -1,0 +1,6 @@
+framework module AdgeistAdvertiserSDK {
+  umbrella header "AdgeistAdvertiserSDK.h"
+  export *
+
+  module * { export * }
+}
