@@ -32,7 +32,7 @@ struct ExampleNativeIOSAppApp: App {
         print("Deeplink received: \(url)")
         
         // Get AdgeistCore instance if initialized
-        if let adgeistCore = try? AdgeistCore.getInstance() {
+        if let adgeistCore = try? AdgeistCore.shared {
             // Track the deeplink with UTM parameters
             adgeistCore.trackDeeplink(url: url)
             

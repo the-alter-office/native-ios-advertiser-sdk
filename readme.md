@@ -1,6 +1,7 @@
 # Advertiser UTM Tracker
 
-No initialization is required. The SDK auto-initializes on first use via `AdgeistCore.shared`.
+Initialization is required. Call `AdgeistCore.initialize()` as early as possible at app startup to ensure tracking permission is requested, install referrer is captured, and the analytics backend is connected before any deeplink arrives.
+
 
 ### 1. AppDelegate Integration (UIKit)
 
@@ -19,10 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Check if app was opened via URL on first launch
         if let url = launchOptions?[.url] as? URL {
             // This captures install attribution with UTM parameters
-            UTMTracker.shared.initializeInstallReferrer(url: url)
+            AdgeistCore.shared.initializeInstallReferrer(url: url)
         } else {
             // No URL provided (organic install)
-            UTMTracker.shared.initializeInstallReferrer()
+            AdgeistCore.shared.initializeInstallReferrer()
         }
 
         return true
@@ -32,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ app: UIApplication,
                      open url: URL,
                      options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        UTMTracker.shared.trackFromDeeplink(url: url)
+        AdgeistCore.shared.trackDeeplink(url: url)
         return true
     }
 
@@ -45,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return false
         }
 
-        UTMTracker.shared.trackFromDeeplink(url: url)
+        AdgeistCore.shared.trackUniversalLink(url: url)
         return true
     }
 }
@@ -71,23 +72,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Check for URL context on first launch
         if let urlContext = connectionOptions.urlContexts.first {
-            UTMTracker.shared.initializeInstallReferrer(url: urlContext.url)
+            AdgeistCore.shared.initializeInstallReferrer(url: urlContext.url)
         } else {
-            UTMTracker.shared.initializeInstallReferrer()
+            AdgeistCore.shared.initializeInstallReferrer()
         }
 
         // Handle Universal Links
         if let userActivity = connectionOptions.userActivities.first,
            userActivity.activityType == NSUserActivityTypeBrowsingWeb,
            let url = userActivity.webpageURL {
-            UTMTracker.shared.initializeInstallReferrer(url: url)
+            AdgeistCore.shared.initializeInstallReferrer(url: url)
         }
     }
 
     // Handle URLs when app is already running
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
         if let url = URLContexts.first?.url {
-            UTMTracker.shared.trackFromDeeplink(url: url)
+            AdgeistCore.shared.trackDeeplink(url: url)
         }
     }
 
@@ -98,14 +99,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             return
         }
 
-        UTMTracker.shared.trackFromDeeplink(url: url)
+        AdgeistCore.shared.trackUniversalLink(url: url)
     }
 }
 ```
 
 ### 3. SwiftUI App Integration (iOS 14+)
 
-For SwiftUI apps, use `@UIApplicationDelegateAdaptor` or handle URLs directly:
+Initialize `AdgeistCore` in your `App`'s `init()` to ensure it runs before any view is rendered:
 
 ```swift
 import SwiftUI
@@ -113,32 +114,20 @@ import AdgeistAdvertiserSDK
 
 @main
 struct YourApp: App {
-    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    init() {
+        // Required: initializes tracking permission, install referrer,
+        // and backend connection at app startup
+        AdgeistCore.initialize()
+    }
 
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .onOpenURL { url in
                     // Handle deeplinks when app is running
-                    UTMTracker.shared.trackFromDeeplink(url: url)
+                    AdgeistCore.shared.trackDeeplink(url: url)
                 }
         }
-    }
-}
-
-// AppDelegate for first launch handling
-class AppDelegate: NSObject, UIApplicationDelegate {
-    func application(_ application: UIApplication,
-                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-
-        // Check for URL on first launch
-        if let url = launchOptions?[.url] as? URL {
-            UTMTracker.shared.initializeInstallReferrer(url: url)
-        } else {
-            UTMTracker.shared.initializeInstallReferrer()
-        }
-
-        return true
     }
 }
 ```

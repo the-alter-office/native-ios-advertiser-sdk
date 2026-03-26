@@ -59,7 +59,7 @@ public final class UTMTracker {
     /// Initialize and track first launch
     /// Uses URL if provided (for install attribution)
     /// Note: iOS doesn't have an equivalent to Android's Install Referrer API
-    public func initializeInstallReferrer(url: URL? = nil) {
+    public func initializeInstallReferrer(url: URL? = nil) {        
         lock.lock()
         let isFirstLaunch = defaults.bool(forKey: KEY_FIRST_LAUNCH)
         lock.unlock()

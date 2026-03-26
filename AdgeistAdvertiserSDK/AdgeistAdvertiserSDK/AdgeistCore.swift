@@ -72,6 +72,13 @@ public final class AdgeistCore {
     public func trackUniversalLink(url: URL) {
         utmTracker.trackFromDeeplink(url: url)
     }
+
+    /// Call this in didFinishLaunchingWithOptions or scene(_:willConnectTo:options:)
+    /// to capture install attribution UTM parameters on first launch.
+    /// Pass the launch URL if the app was opened via a URL scheme.
+    public func initializeInstallReferrer(url: URL? = nil) {
+        utmTracker.initializeInstallReferrer(url: url)
+    }
     
     /// Get current UTM tracking data
     public func getUTMData() -> [String: Any] {
