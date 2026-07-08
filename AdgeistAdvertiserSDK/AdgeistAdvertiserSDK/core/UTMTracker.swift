@@ -31,11 +31,19 @@ public final class UTMTracker {
     
     /// Initialize analytics integration
     /// Called automatically by AdgeistCore during initialization
-    internal func initializeAnalytics(bidRequestBackendDomain: String) {
+    internal func initializeAnalytics(
+        bidRequestBackendDomain: String,
+        deviceMeta: DeviceMeta,
+        deviceIdentifier: DeviceIdentifier
+    ) {
         lock.lock()
         defer { lock.unlock() }
-        
-        self.utmAnalytics = UTMAnalytics(bidRequestBackendDomain: bidRequestBackendDomain)
+
+        self.utmAnalytics = UTMAnalytics(
+            bidRequestBackendDomain: bidRequestBackendDomain,
+            deviceMeta: deviceMeta,
+            deviceIdentifier: deviceIdentifier
+        )
         print("\(TAG): UTM analytics initialized")
     }
     
@@ -84,6 +92,27 @@ public final class UTMTracker {
         }
     }
     
+    /// Track a custom conversion event
+    /// The current stored UTM parameters (if any) are attached as context
+    public func trackConversionEvent(
+        eventName: String,
+        properties: [String: Any] = [:],
+        onComplete: ((Bool, String?) -> Void)? = nil
+    ) {
+        guard let utmAnalytics = utmAnalytics else {
+            print("\(TAG): Analytics not initialized, dropping event: \(eventName)")
+            onComplete?(false, "Analytics not initialized")
+            return
+        }
+
+        utmAnalytics.trackConversionEvent(
+            eventName: eventName,
+            properties: properties,
+            utmParameters: getUtmParameters(),
+            onComplete: onComplete
+        )
+    }
+
     /// Get stored UTM parameters
     public func getUtmParameters() -> UTMParameters? {
         lock.lock()

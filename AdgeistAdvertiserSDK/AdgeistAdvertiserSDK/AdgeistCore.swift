@@ -44,7 +44,11 @@ public final class AdgeistCore {
         self.version = "IOS-\(versionName)-\(versionSuffix)"
         
         // Initialize UTM analytics with backend domain
-        self.utmTracker.initializeAnalytics(bidRequestBackendDomain: self.bidRequestBackendDomain)
+        self.utmTracker.initializeAnalytics(
+            bidRequestBackendDomain: self.bidRequestBackendDomain,
+            deviceMeta: self.deviceMeta,
+            deviceIdentifier: self.deviceIdentifier
+        )
         
         // Track first install UTM parameters
         self.utmTracker.initializeInstallReferrer()
@@ -73,6 +77,23 @@ public final class AdgeistCore {
         utmTracker.trackFromDeeplink(url: url)
     }
     
+    /// Track a custom conversion event
+    /// - Parameters:
+    ///   - eventName: Name of the event
+    ///   - properties: Key/value pairs describing the event (String, Number or Bool values)
+    ///   - onComplete: Optional callback invoked with the send result
+    public func trackConversionEvent(
+        eventName: String,
+        properties: [String: Any] = [:],
+        onComplete: ((Bool, String?) -> Void)? = nil
+    ) {
+        utmTracker.trackConversionEvent(
+            eventName: eventName,
+            properties: properties,
+            onComplete: onComplete
+        )
+    }
+
     /// Get current UTM tracking data
     public func getUTMData() -> [String: Any] {
         return utmTracker.getUtmParameters()?.toDictionary() ?? [:]
