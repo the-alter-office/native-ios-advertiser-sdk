@@ -280,6 +280,28 @@
           },
           {
             "kind": "Function",
+            "name": "getOSVersionName",
+            "printedName": "getOSVersionName()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:20AdgeistAdvertiserSDK10DeviceMetaC16getOSVersionNameSSyF",
+            "mangledName": "$s20AdgeistAdvertiserSDK10DeviceMetaC16getOSVersionNameSSyF",
+            "moduleName": "AdgeistAdvertiserSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "getScreenDimensions",
             "printedName": "getScreenDimensions()",
             "children": [
@@ -307,6 +329,50 @@
             "declKind": "Func",
             "usr": "s:20AdgeistAdvertiserSDK10DeviceMetaC19getScreenDimensionsSDySSSiGyF",
             "mangledName": "$s20AdgeistAdvertiserSDK10DeviceMetaC19getScreenDimensionsSDySSSiGyF",
+            "moduleName": "AdgeistAdvertiserSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getScreenPixelRatio",
+            "printedName": "getScreenPixelRatio()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:20AdgeistAdvertiserSDK10DeviceMetaC19getScreenPixelRatioSiyF",
+            "mangledName": "$s20AdgeistAdvertiserSDK10DeviceMetaC19getScreenPixelRatioSiyF",
+            "moduleName": "AdgeistAdvertiserSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getScreenDensity",
+            "printedName": "getScreenDensity()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:20AdgeistAdvertiserSDK10DeviceMetaC16getScreenDensitySiyF",
+            "mangledName": "$s20AdgeistAdvertiserSDK10DeviceMetaC16getScreenDensitySiyF",
             "moduleName": "AdgeistAdvertiserSDK",
             "declAttributes": [
               "Final",
@@ -1117,6 +1183,102 @@
           },
           {
             "kind": "Function",
+            "name": "trackConversionEvent",
+            "printedName": "trackConversionEvent(eventName:properties:onComplete:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.String : Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:SD"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "((Swift.Bool, Swift.String?) -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Swift.Bool, Swift.String?) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Tuple",
+                        "printedName": "(Swift.Bool, Swift.String?)",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Bool",
+                            "printedName": "Swift.Bool",
+                            "usr": "s:Sb"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Optional",
+                            "printedName": "Swift.String?",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "String",
+                                "printedName": "Swift.String",
+                                "usr": "s:SS"
+                              }
+                            ],
+                            "usr": "s:Sq"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:20AdgeistAdvertiserSDK0A4CoreC20trackConversionEvent9eventName10properties10onCompleteySS_SDySSypGySb_SSSgtcSgtF",
+            "mangledName": "$s20AdgeistAdvertiserSDK0A4CoreC20trackConversionEvent9eventName10properties10onCompleteySS_SDySSypGySb_SSSgtcSgtF",
+            "moduleName": "AdgeistAdvertiserSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "getUTMData",
             "printedName": "getUTMData()",
             "children": [
@@ -1337,6 +1499,102 @@
             "declKind": "Func",
             "usr": "s:20AdgeistAdvertiserSDK10UTMTrackerC25initializeInstallReferrer3urly10Foundation3URLVSg_tF",
             "mangledName": "$s20AdgeistAdvertiserSDK10UTMTrackerC25initializeInstallReferrer3urly10Foundation3URLVSg_tF",
+            "moduleName": "AdgeistAdvertiserSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "trackConversionEvent",
+            "printedName": "trackConversionEvent(eventName:properties:onComplete:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.String : Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:SD"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "((Swift.Bool, Swift.String?) -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Swift.Bool, Swift.String?) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Tuple",
+                        "printedName": "(Swift.Bool, Swift.String?)",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Bool",
+                            "printedName": "Swift.Bool",
+                            "usr": "s:Sb"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Optional",
+                            "printedName": "Swift.String?",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "String",
+                                "printedName": "Swift.String",
+                                "usr": "s:SS"
+                              }
+                            ],
+                            "usr": "s:Sq"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:20AdgeistAdvertiserSDK10UTMTrackerC20trackConversionEvent9eventName10properties10onCompleteySS_SDySSypGySb_SSSgtcSgtF",
+            "mangledName": "$s20AdgeistAdvertiserSDK10UTMTrackerC20trackConversionEvent9eventName10properties10onCompleteySS_SDySSypGySb_SSSgtcSgtF",
             "moduleName": "AdgeistAdvertiserSDK",
             "declAttributes": [
               "Final",
@@ -2009,13 +2267,6 @@
           },
           {
             "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
             "name": "Decodable",
             "printedName": "Decodable",
             "usr": "s:Se",
@@ -2034,6 +2285,13 @@
             "printedName": "Equatable",
             "usr": "s:SQ",
             "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           }
         ]
       },
@@ -2375,6 +2633,116 @@
               "RawDocComment"
             ],
             "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "trackConversionEvent",
+            "printedName": "trackConversionEvent(eventName:properties:utmParameters:onComplete:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.String : Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:SD"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "AdgeistAdvertiserSDK.UTMParameters?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UTMParameters",
+                    "printedName": "AdgeistAdvertiserSDK.UTMParameters",
+                    "usr": "s:20AdgeistAdvertiserSDK13UTMParametersV"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "((Swift.Bool, Swift.String?) -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Swift.Bool, Swift.String?) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Tuple",
+                        "printedName": "(Swift.Bool, Swift.String?)",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Bool",
+                            "printedName": "Swift.Bool",
+                            "usr": "s:Sb"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Optional",
+                            "printedName": "Swift.String?",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "String",
+                                "printedName": "Swift.String",
+                                "usr": "s:SS"
+                              }
+                            ],
+                            "usr": "s:Sq"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:20AdgeistAdvertiserSDK12UTMAnalyticsC20trackConversionEvent9eventName10properties13utmParameters10onCompleteySS_SDySSypGAA13UTMParametersVSgySb_SSSgtcSgtF",
+            "mangledName": "$s20AdgeistAdvertiserSDK12UTMAnalyticsC20trackConversionEvent9eventName10properties13utmParameters10onCompleteySS_SDySSypGAA13UTMParametersVSgySb_SSSgtcSgtF",
+            "moduleName": "AdgeistAdvertiserSDK",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Class",
@@ -2632,6 +3000,13 @@
   },
   "ConstValues": [
     {
+      "filePath": "\/Users\/runner\/work\/native-ios-advertiser-sdk\/native-ios-advertiser-sdk\/AdgeistAdvertiserSDK\/AdgeistAdvertiserSDK\/AdgeistCore.swift",
+      "kind": "Dictionary",
+      "offset": 3073,
+      "length": 3,
+      "value": "[]"
+    },
+    {
       "filePath": "\/Users\/runner\/work\/native-ios-advertiser-sdk\/native-ios-advertiser-sdk\/AdgeistAdvertiserSDK\/AdgeistAdvertiserSDK\/core\/UTMTracker.swift",
       "kind": "StringLiteral",
       "offset": 281,
@@ -2681,6 +3056,13 @@
       "value": "false"
     },
     {
+      "filePath": "\/Users\/runner\/work\/native-ios-advertiser-sdk\/native-ios-advertiser-sdk\/AdgeistAdvertiserSDK\/AdgeistAdvertiserSDK\/core\/UTMTracker.swift",
+      "kind": "Dictionary",
+      "offset": 3491,
+      "length": 3,
+      "value": "[]"
+    },
+    {
       "filePath": "\/Users\/runner\/work\/native-ios-advertiser-sdk\/native-ios-advertiser-sdk\/AdgeistAdvertiserSDK\/AdgeistAdvertiserSDK\/core\/EventTypes.swift",
       "kind": "StringLiteral",
       "offset": 157,
@@ -2704,16 +3086,23 @@
     {
       "filePath": "\/Users\/runner\/work\/native-ios-advertiser-sdk\/native-ios-advertiser-sdk\/AdgeistAdvertiserSDK\/AdgeistAdvertiserSDK\/data\/network\/UTMAnalytics.swift",
       "kind": "StringLiteral",
-      "offset": 191,
+      "offset": 304,
       "length": 14,
       "value": "\"UTMAnalytics\""
     },
     {
       "filePath": "\/Users\/runner\/work\/native-ios-advertiser-sdk\/native-ios-advertiser-sdk\/AdgeistAdvertiserSDK\/AdgeistAdvertiserSDK\/data\/network\/UTMAnalytics.swift",
       "kind": "StringLiteral",
-      "offset": 250,
-      "length": 24,
-      "value": "\"\/v2\/ssp\/campaign-event\""
+      "offset": 363,
+      "length": 25,
+      "value": "\"\/v2\/ssp\/analytics-event\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/native-ios-advertiser-sdk\/native-ios-advertiser-sdk\/AdgeistAdvertiserSDK\/AdgeistAdvertiserSDK\/data\/network\/UTMAnalytics.swift",
+      "kind": "Dictionary",
+      "offset": 2076,
+      "length": 3,
+      "value": "[]"
     }
   ]
 }

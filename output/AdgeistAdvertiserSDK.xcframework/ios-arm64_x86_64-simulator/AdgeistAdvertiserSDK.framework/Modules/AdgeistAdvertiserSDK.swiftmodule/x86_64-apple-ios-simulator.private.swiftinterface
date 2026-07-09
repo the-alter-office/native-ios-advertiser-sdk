@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
-// swift-module-flags: -target x86_64-apple-ios17.4-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name AdgeistAdvertiserSDK
-// swift-module-flags-ignorable:  -interface-compiler-version 6.1.2
+// swift-compiler-version: Apple Swift version 6.3.2 effective-5.10 (swiftlang-6.3.2.1.108 clang-2100.1.1.101)
+// swift-module-flags: -target x86_64-apple-ios17.4-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name AdgeistAdvertiserSDK
+// swift-module-flags-ignorable:  -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3.2
 import AdSupport
 @_exported import AdgeistAdvertiserSDK
 import AppTrackingTransparency
@@ -29,7 +29,10 @@ final public class TargetingOptions {
   final public func getAvailableProcessors() -> Swift.Int
   final public func getOperatingSystem() -> Swift.String
   final public func getOSVersion() -> Swift.Int
+  final public func getOSVersionName() -> Swift.String
   final public func getScreenDimensions() -> [Swift.String : Swift.Int]
+  final public func getScreenPixelRatio() -> Swift.Int
+  final public func getScreenDensity() -> Swift.Int
   final public func getNetworkType() -> Swift.String?
   final public func getNetworkProvider() -> Swift.String?
   final public func isTouchScreenAvailable() -> Swift.Bool
@@ -56,6 +59,7 @@ final public class TargetingOptions {
   public static func getInstance() -> AdgeistAdvertiserSDK.AdgeistCore
   final public func trackDeeplink(url: Foundation.URL)
   final public func trackUniversalLink(url: Foundation.URL)
+  final public func trackConversionEvent(eventName: Swift.String, properties: [Swift.String : Any] = [:], onComplete: ((Swift.Bool, Swift.String?) -> Swift.Void)? = nil)
   final public func getUTMData() -> [Swift.String : Any]
   final public func getCurrentUTM() -> AdgeistAdvertiserSDK.UTMParameters?
   @objc deinit
@@ -64,6 +68,7 @@ final public class TargetingOptions {
   public static let shared: AdgeistAdvertiserSDK.UTMTracker
   final public func trackFromDeeplink(url: Foundation.URL)
   final public func initializeInstallReferrer(url: Foundation.URL? = nil)
+  final public func trackConversionEvent(eventName: Swift.String, properties: [Swift.String : Any] = [:], onComplete: ((Swift.Bool, Swift.String?) -> Swift.Void)? = nil)
   final public func getUtmParameters() -> AdgeistAdvertiserSDK.UTMParameters?
   final public func clearUtmParameters()
   @objc deinit
@@ -90,6 +95,7 @@ public struct EventTypes {
 @_hasMissingDesignatedInitializers public class UTMAnalytics {
   public func sendUtmData(_ params: AdgeistAdvertiserSDK.UTMParameters, eventType: Swift.String = EventTypes.VISIT, additionalData: [Swift.String : Any]? = nil, onComplete: ((Swift.Bool, Swift.String?) -> Swift.Void)? = nil)
   public func sendInstallAttributionEvent(utmParameters: AdgeistAdvertiserSDK.UTMParameters?)
+  public func trackConversionEvent(eventName: Swift.String, properties: [Swift.String : Any] = [:], utmParameters: AdgeistAdvertiserSDK.UTMParameters? = nil, onComplete: ((Swift.Bool, Swift.String?) -> Swift.Void)? = nil)
   @objc deinit
 }
 public class NetworkUtils {
