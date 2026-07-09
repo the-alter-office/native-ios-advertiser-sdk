@@ -143,4 +143,48 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 }
 ```
 
+### 4. Tracking Conversion Events
+
+Report custom conversion events (for example a purchase, sign-up, or add-to-cart) from anywhere in your app using `AdgeistCore.shared.trackConversionEvent`. Any UTM parameters captured from the install or a deeplink are automatically attached to the event, along with the device fingerprint and capability profile.
+
+```swift
+import AdgeistAdvertiserSDK
+
+// Minimal — just an event name
+AdgeistCore.shared.trackConversionEvent(eventName: "purchase")
+
+// With custom properties
+AdgeistCore.shared.trackConversionEvent(
+    eventName: "purchase",
+    properties: [
+        "orderId": "ORD-12345",
+        "value": 49.99,
+        "currency": "USD",
+        "isFirstPurchase": true
+    ]
+)
+
+// With a completion handler to observe the result
+AdgeistCore.shared.trackConversionEvent(
+    eventName: "sign_up",
+    properties: ["plan": "pro"]
+) { success, error in
+    if success {
+        print("Conversion event sent")
+    } else {
+        print("Failed to send event: \(error ?? "unknown error")")
+    }
+}
+```
+
+**Parameters**
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `eventName` | `String` | Yes | Name of the event (sent to the backend as the event `type`). |
+| `properties` | `[String: Any]` | No | Key/value pairs describing the event. Use `String`, `Number`, or `Bool` values. Defaults to empty. |
+| `onComplete` | `((Bool, String?) -> Void)?` | No | Optional callback with the send result: `(true, nil)` on success, or `(false, errorMessage)` on failure. |
+
+
+
 

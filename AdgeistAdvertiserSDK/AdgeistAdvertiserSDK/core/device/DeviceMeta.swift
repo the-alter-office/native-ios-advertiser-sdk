@@ -25,10 +25,16 @@ public final class DeviceMeta {
         Int(UIDevice.current.systemVersion.split(separator: ".").first ?? "0") ?? 0
     }
 
+    public func getOSVersionName() -> String { UIDevice.current.systemVersion }
+
     public func getScreenDimensions() -> [String: Int] {
         let s = UIScreen.main.bounds
         return ["width": Int(s.width), "height": Int(s.height)]
     }
+
+    public func getScreenPixelRatio() -> Int { Int(UIScreen.main.scale) }
+
+    public func getScreenDensity() -> Int { Int(UIScreen.main.scale * 160) }
 
     public func getNetworkType() -> String? {
         guard let info = CTTelephonyNetworkInfo() as CTTelephonyNetworkInfo?,
