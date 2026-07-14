@@ -1,0 +1,47 @@
+name: Documentation
+description: Report missing, unclear, or incorrect documentation for the AdgeistAdvertiserSDK
+labels:
+  - documentation
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve the docs! Every field is optional.
+  - type: dropdown
+    id: doc-type
+    attributes:
+      label: Type of Documentation Issue
+      options:
+        - Missing documentation
+        - Incorrect / outdated documentation
+        - Unclear or confusing documentation
+        - Typo or formatting issue
+        - Other
+  - type: input
+    id: location
+    attributes:
+      label: Location
+      description: Where is the documentation issue? (file, section, or URL)
+      placeholder: "e.g. readme.md — CocoaPods installation section"
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Describe what is missing, wrong, or unclear.
+      placeholder: "e.g. The README shows how to initialize the SDK but doesn't document the parameters accepted by trackConversionEvent."
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggested Improvement
+      description: If you have a suggestion for how the documentation should read, share it here.
+      placeholder: |
+        e.g. Add a code sample showing a complete integration:
+        - Adding the pod to the Podfile
+        - Initializing AdgeistCore
+        - Tracking a conversion event with UTM attribution
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Any other context, links, or screenshots.
+      placeholder: "e.g. Link to the section of the docs/ folder this relates to."

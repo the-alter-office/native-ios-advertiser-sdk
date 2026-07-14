@@ -1,0 +1,31 @@
+name: General Report
+description: Ask a question or report something that doesn't fit the other categories
+labels:
+  - general
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form for questions, integration help, or anything that isn't a bug, feature request, or documentation issue. Every field is optional.
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: Describe your question or report.
+      placeholder: "e.g. Does the SDK support attribution for apps installed via TestFlight, and how are UTM params captured in that case?"
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Share any relevant setup details — SDK version, integration method, use case, etc.
+      placeholder: |
+        e.g.
+        - AdgeistAdvertiserSDK 0.0.2-beta via CocoaPods
+        - iOS 17, SwiftUI app
+        - Tracking conversions from paid ad campaigns using UTM parameters
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Information
+      description: Anything else you'd like to share (logs, screenshots, links).
+      placeholder: "e.g. Console output from the example app in ExampleNativeIOSApp."

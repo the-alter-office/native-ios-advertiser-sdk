@@ -1,0 +1,70 @@
+name: Bug Report
+description: Report a bug or unexpected behavior in the AdgeistAdvertiserSDK
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug! Please fill out as much as you can — every field is optional.
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: A clear and concise description of what the bug is.
+      placeholder: "e.g. Calling trackConversionEvent crashes when the UTM parameters are missing from the stored attribution data."
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: Steps to reproduce the behavior.
+      placeholder: |
+        1. Integrate AdgeistAdvertiserSDK via CocoaPods (pod 'AdgeistAdvertiserSDK')
+        2. Initialize the SDK in AppDelegate
+        3. Call trackConversionEvent(...)
+        4. See crash / unexpected result
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What did you expect to happen?
+      placeholder: "e.g. The conversion event should be tracked with the stored UTM attribution parameters."
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: What actually happened? Include crash logs or console output if available.
+      placeholder: |
+        e.g. The app crashes with:
+        Fatal error: Unexpectedly found nil while unwrapping an Optional value (AdgeistCore.swift)
+  - type: input
+    id: sdk-version
+    attributes:
+      label: SDK Version
+      description: Which version of AdgeistAdvertiserSDK are you using?
+      placeholder: "e.g. 0.0.2-beta"
+  - type: input
+    id: ios-version
+    attributes:
+      label: iOS Version
+      description: Which iOS version(s) does this occur on?
+      placeholder: "e.g. iOS 17.5"
+  - type: input
+    id: xcode-version
+    attributes:
+      label: Xcode Version
+      placeholder: "e.g. Xcode 15.4"
+  - type: dropdown
+    id: integration
+    attributes:
+      label: Integration Method
+      options:
+        - CocoaPods
+        - XCFramework (manual)
+        - Other
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Add any other context about the problem here (device model, sample code, screenshots, etc.).
+      placeholder: "e.g. Only reproducible on a physical device, not the simulator."

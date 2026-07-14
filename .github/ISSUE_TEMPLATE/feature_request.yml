@@ -1,0 +1,47 @@
+name: Feature Request
+description: Suggest a new feature or improvement for the AdgeistAdvertiserSDK
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting an improvement! Please describe your idea — every field is optional.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem Statement
+      description: Is your feature request related to a problem? Please describe.
+      placeholder: "e.g. There is currently no way to track custom attribution parameters beyond the standard UTM params."
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: Describe the solution you'd like.
+      placeholder: |
+        e.g. Add an API like:
+        AdgeistCore.shared.trackConversionEvent(name: "purchase", customParams: ["campaign_group": "summer"])
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Describe any alternative solutions or workarounds you've considered.
+      placeholder: "e.g. Manually appending custom values to the UTM campaign string, but this pollutes attribution reports."
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area of the SDK
+      description: Which part of the SDK does this relate to?
+      options:
+        - Attribution / UTM tracking
+        - Conversion event tracking
+        - SDK initialization / configuration
+        - Distribution (CocoaPods / XCFramework)
+        - Example app
+        - Other
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Add any other context, mockups, or API sketches for the feature request here.
+      placeholder: "e.g. Similar functionality exists in the AppsFlyer iOS SDK."
