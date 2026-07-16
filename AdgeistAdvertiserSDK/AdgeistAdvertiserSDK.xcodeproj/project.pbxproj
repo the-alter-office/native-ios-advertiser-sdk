@@ -10,11 +10,11 @@
 		3F21C6EB2DC48FC100CCEF9C /* AdgeistAdvertiserSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F21C6EA2DC48FC100CCEF9C /* AdgeistAdvertiserSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3FUTM0012DCUTM0000CCEF9C /* UTMTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FUTM0011DCUTM0000CCEF9C /* UTMTracker.swift */; };
 		3FUTM0052DCUTM0400CCEF9C /* UTMAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FUTM0042DCUTM0400CCEF9C /* UTMAnalytics.swift */; };
+		3FSESSION000000000000002 /* SessionTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FSESSION000000000000001 /* SessionTracker.swift */; };
 		3F21C71A2DC4946200CCEF9C /* AdgeistCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F21C7192DC4946200CCEF9C /* AdgeistCore.swift */; };
 		3F7A1BEF2E4D180B00A7D6F6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7A1BEE2E4D180300A7D6F6 /* Extensions.swift */; };
 		3F827B802EB33D7A00F3467B /* DeviceMeta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F827B7D2EB33D7A00F3467B /* DeviceMeta.swift */; };
 		3FLOGGER0000000000000002 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FLOGGER0000000000000001 /* Logger.swift */; };
-		3FDEVDATA000000000000002 /* DeviceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDEVDATA000000000000001 /* DeviceData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,11 +22,11 @@
 		3F21C6EA2DC48FC100CCEF9C /* AdgeistAdvertiserSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdgeistAdvertiserSDK.h; sourceTree = "<group>"; };
 		3FUTM0011DCUTM0000CCEF9C /* UTMTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UTMTracker.swift; sourceTree = "<group>"; };
 		3FUTM0042DCUTM0400CCEF9C /* UTMAnalytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UTMAnalytics.swift; sourceTree = "<group>"; };
+		3FSESSION000000000000001 /* SessionTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionTracker.swift; sourceTree = "<group>"; };
 		3F21C7192DC4946200CCEF9C /* AdgeistCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdgeistCore.swift; sourceTree = "<group>"; };
 		3F7A1BEE2E4D180300A7D6F6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		3F827B7D2EB33D7A00F3467B /* DeviceMeta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceMeta.swift; sourceTree = "<group>"; };
 		3FLOGGER0000000000000001 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
-		3FDEVDATA000000000000001 /* DeviceData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceData.swift; sourceTree = "<group>"; };
 		3FCONFIG001 /* Beta.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Beta.xcconfig; sourceTree = "<group>"; };
 		3FCONFIG002 /* QA.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = QA.xcconfig; sourceTree = "<group>"; };
 		3FCONFIG003 /* Prod.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Prod.xcconfig; sourceTree = "<group>"; };
@@ -96,7 +96,6 @@
 			isa = PBXGroup;
 			children = (
 				3F827B7D2EB33D7A00F3467B /* DeviceMeta.swift */,
-				3FDEVDATA000000000000001 /* DeviceData.swift */,
 			);
 			path = device;
 			sourceTree = "<group>";
@@ -121,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				3FUTM0042DCUTM0400CCEF9C /* UTMAnalytics.swift */,
+				3FSESSION000000000000001 /* SessionTracker.swift */,
 			);
 			path = network;
 			sourceTree = "<group>";
@@ -209,9 +209,9 @@
 				3F21C71A2DC4946200CCEF9C /* AdgeistCore.swift in Sources */,
 				3FUTM0012DCUTM0000CCEF9C /* UTMTracker.swift in Sources */,
 				3FUTM0052DCUTM0400CCEF9C /* UTMAnalytics.swift in Sources */,
+				3FSESSION000000000000002 /* SessionTracker.swift in Sources */,
 				3F7A1BEF2E4D180B00A7D6F6 /* Extensions.swift in Sources */,
 				3FLOGGER0000000000000002 /* Logger.swift in Sources */,
-				3FDEVDATA000000000000002 /* DeviceData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

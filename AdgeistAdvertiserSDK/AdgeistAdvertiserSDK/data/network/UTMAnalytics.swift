@@ -95,6 +95,9 @@ enum AnalyticsPropertyValue: Codable {
 class UTMAnalytics {
     private static let ANALYTICS_ENDPOINT = "/v2/ssp/analytics-event"
 
+    private static let VISIT_EVENT = "VISIT"
+    private static let SESSION_DURATION_EVENT = "SESSION_DURATION"
+
 
     //this should be computed once and reused for all events in the same app session
     private let flowId = UUID().uuidString
@@ -103,13 +106,32 @@ class UTMAnalytics {
     private let deviceMeta = DeviceMeta.shared
 
 
-    private let baseURL: String = Bundle.main.object(forInfoDictionaryKey: "BASE_API_URL") as? String ?? ""
+    private let sessionTracker = SessionTracker.shared
+
+
+    private let baseURL: String = Bundle.main.object(forInfoDictionaryKey: "BASE_API_URL") as? String ?? "https://beta.v2.bg-services.adgeist.ai"
 
 
     private lazy var analyticsUrl: URL? = URL(string: baseURL + UTMAnalytics.ANALYTICS_ENDPOINT)
 
 
-    func buildEventPayload(eventName: String, properties: [String: Any]) -> AnalyticsRequestBody {
+    init() {
+        // Flush a SESSION_DURATION event when the app moves to the background
+        sessionTracker.onSessionEnd = { [weak self] snapshot, completion in
+            guard let self = self else {
+                completion()
+                return
+            }
+            self.send(
+                eventName: UTMAnalytics.SESSION_DURATION_EVENT,
+                properties: [:],
+                session: snapshot
+            ) { _, _ in completion() }
+        }
+    }
+
+
+    func buildEventPayload(eventName: String, properties: [String: Any], session: SessionTracker.Snapshot) -> AnalyticsRequestBody {
         let supportedProperties = properties.compactMapValues(AnalyticsPropertyValue.init)
 
         let droppedKeys = Set(properties.keys).subtracting(supportedProperties.keys)
@@ -123,7 +145,14 @@ class UTMAnalytics {
             origin: Bundle.main.bundleIdentifier ?? "Unknown",
             metaData: nil,
             platform: "IOS",
-            additionalData: nil,
+            additionalData: AnalyticsRequestBody.AdditionalData(
+                userId: nil,
+                lastDeepLinkReferrer: nil,
+                sessionDuration: session.sessionDuration,
+                totalSessionDuration: session.totalSessionDuration,
+                isEngaged: session.isEngaged,
+                device: nil
+            ),
             deviceType: deviceMeta.deviceType,
             deviceBrand: deviceMeta.deviceManufacturer,
             screenWidth: deviceMeta.screenWidth,
@@ -140,6 +169,20 @@ class UTMAnalytics {
 
 
     func sendEventToServer(eventName: String, properties: [String: Any], onComplete: ((Bool, String?) -> Void)? = nil) {
+        let session: SessionTracker.Snapshot
+        if eventName == UTMAnalytics.VISIT_EVENT {
+            sessionTracker.startSession()
+            session = sessionTracker.snapshot()
+        } else {
+            // Any tracked event counts as a user action
+            session = sessionTracker.recordEngagement()
+        }
+
+        send(eventName: eventName, properties: properties, session: session, onComplete: onComplete)
+    }
+
+
+    private func send(eventName: String, properties: [String: Any], session: SessionTracker.Snapshot, onComplete: ((Bool, String?) -> Void)? = nil) {
         guard let analyticsUrl = analyticsUrl else {
             Logger.log("Invalid analytics URL — check BASE_API_URL in Info.plist")
             onComplete?(false, "Invalid analytics URL")
@@ -150,7 +193,7 @@ class UTMAnalytics {
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
-        let eventData = buildEventPayload(eventName: eventName, properties: properties)
+        let eventData = buildEventPayload(eventName: eventName, properties: properties, session: session)
 
         do {
             request.httpBody = try JSONEncoder().encode(eventData)
