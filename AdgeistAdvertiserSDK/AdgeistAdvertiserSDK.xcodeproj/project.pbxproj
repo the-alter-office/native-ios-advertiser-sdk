@@ -9,34 +9,24 @@
 /* Begin PBXBuildFile section */
 		3F21C6EB2DC48FC100CCEF9C /* AdgeistAdvertiserSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F21C6EA2DC48FC100CCEF9C /* AdgeistAdvertiserSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3FUTM0012DCUTM0000CCEF9C /* UTMTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FUTM0011DCUTM0000CCEF9C /* UTMTracker.swift */; };
-		3FUTM0032DCUTM0200CCEF9C /* UTMParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FUTM0022DCUTM0200CCEF9C /* UTMParameters.swift */; };
-		3FEVNT0022EventTypes000001 /* EventTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEVNT0012EventTypes000001 /* EventTypes.swift */; };
 		3FUTM0052DCUTM0400CCEF9C /* UTMAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FUTM0042DCUTM0400CCEF9C /* UTMAnalytics.swift */; };
-		3F21C7142DC492CB00CCEF9C /* DeviceIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F21C7132DC492CB00CCEF9C /* DeviceIdentifier.swift */; };
 		3F21C71A2DC4946200CCEF9C /* AdgeistCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F21C7192DC4946200CCEF9C /* AdgeistCore.swift */; };
-		3F6FE8042ED829E900BFFF4D /* NetworkUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6FE8032ED829E000BFFF4D /* NetworkUtils.swift */; };
-		3F6FE8062ED82A1800BFFF4D /* Demographics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6FE8052ED82A1000BFFF4D /* Demographics.swift */; };
-		3F6FE8082ED82A2B00BFFF4D /* GeoLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6FE8072ED82A2300BFFF4D /* GeoLocation.swift */; };
 		3F7A1BEF2E4D180B00A7D6F6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7A1BEE2E4D180300A7D6F6 /* Extensions.swift */; };
-		3F827B7F2EB33D7A00F3467B /* TargetingOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F827B7E2EB33D7A00F3467B /* TargetingOptions.swift */; };
 		3F827B802EB33D7A00F3467B /* DeviceMeta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F827B7D2EB33D7A00F3467B /* DeviceMeta.swift */; };
+		3FLOGGER0000000000000002 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FLOGGER0000000000000001 /* Logger.swift */; };
+		3FDEVDATA000000000000002 /* DeviceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDEVDATA000000000000001 /* DeviceData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3F21C6E72DC48FC100CCEF9C /* AdgeistAdvertiserSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AdgeistAdvertiserSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F21C6EA2DC48FC100CCEF9C /* AdgeistAdvertiserSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdgeistAdvertiserSDK.h; sourceTree = "<group>"; };
 		3FUTM0011DCUTM0000CCEF9C /* UTMTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UTMTracker.swift; sourceTree = "<group>"; };
-		3FUTM0022DCUTM0200CCEF9C /* UTMParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UTMParameters.swift; sourceTree = "<group>"; };
-		3FEVNT0012EventTypes000001 /* EventTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTypes.swift; sourceTree = "<group>"; };
 		3FUTM0042DCUTM0400CCEF9C /* UTMAnalytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UTMAnalytics.swift; sourceTree = "<group>"; };
-		3F21C7132DC492CB00CCEF9C /* DeviceIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceIdentifier.swift; sourceTree = "<group>"; };
 		3F21C7192DC4946200CCEF9C /* AdgeistCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdgeistCore.swift; sourceTree = "<group>"; };
-		3F6FE8032ED829E000BFFF4D /* NetworkUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUtils.swift; sourceTree = "<group>"; };
-		3F6FE8052ED82A1000BFFF4D /* Demographics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Demographics.swift; sourceTree = "<group>"; };
-		3F6FE8072ED82A2300BFFF4D /* GeoLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoLocation.swift; sourceTree = "<group>"; };
 		3F7A1BEE2E4D180300A7D6F6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		3F827B7D2EB33D7A00F3467B /* DeviceMeta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceMeta.swift; sourceTree = "<group>"; };
-		3F827B7E2EB33D7A00F3467B /* TargetingOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetingOptions.swift; sourceTree = "<group>"; };
+		3FLOGGER0000000000000001 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		3FDEVDATA000000000000001 /* DeviceData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceData.swift; sourceTree = "<group>"; };
 		3FCONFIG001 /* Beta.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Beta.xcconfig; sourceTree = "<group>"; };
 		3FCONFIG002 /* QA.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = QA.xcconfig; sourceTree = "<group>"; };
 		3FCONFIG003 /* Prod.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Prod.xcconfig; sourceTree = "<group>"; };
@@ -96,12 +86,8 @@
 			isa = PBXGroup;
 			children = (
 				3FCORE003 /* device */,
-				3F6FE8072ED82A2300BFFF4D /* GeoLocation.swift */,
-				3F6FE8052ED82A1000BFFF4D /* Demographics.swift */,
-				3F827B7E2EB33D7A00F3467B /* TargetingOptions.swift */,
 				3FUTM0011DCUTM0000CCEF9C /* UTMTracker.swift */,
-				3FUTM0022DCUTM0200CCEF9C /* UTMParameters.swift */,
-				3FEVNT0012EventTypes000001 /* EventTypes.swift */,
+				3FLOGGER0000000000000001 /* Logger.swift */,
 			);
 			path = core;
 			sourceTree = "<group>";
@@ -109,9 +95,8 @@
 		3FCORE003 /* device */ = {
 			isa = PBXGroup;
 			children = (
-				3F6FE8032ED829E000BFFF4D /* NetworkUtils.swift */,
-				3F21C7132DC492CB00CCEF9C /* DeviceIdentifier.swift */,
 				3F827B7D2EB33D7A00F3467B /* DeviceMeta.swift */,
+				3FDEVDATA000000000000001 /* DeviceData.swift */,
 			);
 			path = device;
 			sourceTree = "<group>";
@@ -220,18 +205,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F827B7F2EB33D7A00F3467B /* TargetingOptions.swift in Sources */,
 				3F827B802EB33D7A00F3467B /* DeviceMeta.swift in Sources */,
 				3F21C71A2DC4946200CCEF9C /* AdgeistCore.swift in Sources */,
 				3FUTM0012DCUTM0000CCEF9C /* UTMTracker.swift in Sources */,
-				3FUTM0032DCUTM0200CCEF9C /* UTMParameters.swift in Sources */,
-				3FEVNT0022EventTypes000001 /* EventTypes.swift in Sources */,
 				3FUTM0052DCUTM0400CCEF9C /* UTMAnalytics.swift in Sources */,
 				3F7A1BEF2E4D180B00A7D6F6 /* Extensions.swift in Sources */,
-				3F6FE8042ED829E900BFFF4D /* NetworkUtils.swift in Sources */,
-				3F6FE8082ED82A2B00BFFF4D /* GeoLocation.swift in Sources */,
-				3F21C7142DC492CB00CCEF9C /* DeviceIdentifier.swift in Sources */,
-				3F6FE8062ED82A1800BFFF4D /* Demographics.swift in Sources */,
+				3FLOGGER0000000000000002 /* Logger.swift in Sources */,
+				3FDEVDATA000000000000002 /* DeviceData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

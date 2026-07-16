@@ -17,6 +17,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		382E4A373008E0840075B123 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3F21C7112DC4A00000CCEF9C /* AdgeistAdvertiserSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3F21C6E72DC48FC100CCEF9C;
+			remoteInfo = AdgeistAdvertiserSDK;
+		};
 		3F21C7132DC4A00000CCEF9C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3F21C7112DC4A00000CCEF9C /* AdgeistAdvertiserSDK.xcodeproj */;
@@ -57,21 +64,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		382E4A333008E0830075B123 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				3F21C7142DC4A00000CCEF9C /* AdgeistAdvertiserSDK.framework */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		382E4A343008E0830075B123 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				382E4A383008E0840075B123 /* AdgeistAdvertiserSDK.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		3F21C6F12DC4901600CCEF9C = {
 			isa = PBXGroup;
 			children = (
 				3F21C6FC2DC4901700CCEF9C /* ExampleNativeIOSApp */,
 				3F21C6FB2DC4901700CCEF9C /* Products */,
 				3F21C7112DC4A00000CCEF9C /* AdgeistAdvertiserSDK.xcodeproj */,
+				382E4A333008E0830075B123 /* Recovered References */,
 			);
-			sourceTree = "<group>";
-		};
-		3F21C7122DC4A00000CCEF9C /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				3F21C7142DC4A00000CCEF9C /* AdgeistAdvertiserSDK.framework */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		3F21C6FB2DC4901700CCEF9C /* Products */ = {
@@ -151,12 +167,35 @@
 			mainGroup = 3F21C6F12DC4901600CCEF9C;
 			productRefGroup = 3F21C6FB2DC4901700CCEF9C /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 382E4A343008E0830075B123 /* Products */;
+					ProjectRef = 3F21C7112DC4A00000CCEF9C /* AdgeistAdvertiserSDK.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				3F21C6F92DC4901700CCEF9C /* ExampleNativeIOSApp */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		382E4A383008E0840075B123 /* AdgeistAdvertiserSDK.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AdgeistAdvertiserSDK.framework;
+			remoteRef = 382E4A373008E0840075B123 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3F21C7142DC4A00000CCEF9C /* AdgeistAdvertiserSDK.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AdgeistAdvertiserSDK.framework;
+			remoteRef = 3F21C7132DC4A00000CCEF9C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		3F21C6F82DC4901700CCEF9C /* Resources */ = {
@@ -183,16 +222,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXReferenceProxy section */
-		3F21C7142DC4A00000CCEF9C /* AdgeistAdvertiserSDK.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = AdgeistAdvertiserSDK.framework;
-			remoteRef = 3F21C7132DC4A00000CCEF9C /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXTargetDependency section */
 		3F21C7162DC4A00000CCEF9C /* PBXTargetDependency */ = {

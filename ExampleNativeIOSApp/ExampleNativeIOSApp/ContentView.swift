@@ -41,8 +41,8 @@ struct ContentView: View {
                             .padding(.horizontal)
 
                         HStack(spacing: 12) {
-                            Button("Refresh UTM Data") {
-                                refreshUTMData()
+                            Button("Track Conversion") {
+                                trackConversion()
                             }
                             .font(.headline)
                             .frame(maxWidth: .infinity)
@@ -63,16 +63,6 @@ struct ContentView: View {
                         }
                         .padding(.horizontal)
 
-                        Button("Clear UTM Data") {
-                            clearUTMData()
-                        }
-                        .font(.headline)
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(Color.red.opacity(0.8))
-                        .foregroundColor(.white)
-                        .cornerRadius(8)
-                        .padding(.horizontal)
                     }
                     .padding(.vertical)
                 }
@@ -87,19 +77,16 @@ struct ContentView: View {
         }
     }
 
-    private func refreshUTMData() {
-        let utmData = AdgeistCore.getInstance().getUTMData()
-
-        if utmData.isEmpty {
-            utmDataString = "No UTM data captured yet"
-        } else if let jsonData = try? JSONSerialization.data(withJSONObject: utmData, options: .prettyPrinted),
-                  let jsonString = String(data: jsonData, encoding: .utf8) {
-            utmDataString = jsonString
-        } else {
-            utmDataString = utmData.description
+    private func trackConversion() {
+        AdgeistCore.shared.trackConversionEvent(eventName: "TEST_CONVERSION") { success, errorMessage in
+            DispatchQueue.main.async {
+                if success {
+                    showAlert(title: "Conversion Tracked", message: "TEST_CONVERSION event sent successfully")
+                } else {
+                    showAlert(title: "Conversion Failed", message: errorMessage ?? "Unknown error")
+                }
+            }
         }
-
-        showAlert(title: "UTM Data Refreshed", message: "Check the display above")
     }
 
     private func simulateDeeplink() {
@@ -108,15 +95,9 @@ struct ContentView: View {
             return
         }
 
-        AdgeistCore.getInstance().trackDeeplink(url: url)
-        refreshUTMData()
+        AdgeistCore.shared.startAttributionTracking(url: url)
+        utmDataString = "Attribution tracking started for: \(url.absoluteString)"
         showAlert(title: "Deeplink Tracked", message: "UTM parameters captured from: \(url.absoluteString)")
-    }
-
-    private func clearUTMData() {
-        UTMTracker.shared.clearUtmParameters()
-        utmDataString = "No UTM data yet"
-        showAlert(title: "Cleared", message: "All UTM data has been cleared")
     }
 
     private func showAlert(title: String, message: String) {

@@ -1,13 +1,13 @@
 import Foundation
 
 
-package final class UTMTracker {
+final class UTMTracker {
 
-    let analytics = UTMAnalytics()    
+    let analytics = UTMAnalytics()
 
     var utmMetaData: String? = nil
-   
-    private init() {}
+
+    init() {}
     
    
     func startAttributionTracking(url: URL? = nil) {
